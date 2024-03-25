@@ -5,6 +5,7 @@
 目前支持網站：
 
 - LearnMode 學習吧
+- SanminExam 三民東大測驗
 
 ## 使用方法
 
