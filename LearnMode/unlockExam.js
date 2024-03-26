@@ -4,7 +4,9 @@
  * 使用方法：複製整段程式，在瀏覽器控制台底部輸入框中貼上，Enter 解除限制
  */
 // 尋找按鈕
-const unlockTest = document.querySelector('button[data-v-3755d284]')
+const unlockTest = document.querySelector(
+  'section#Test > div > div > div > button'
+)
 if (unlockTest) {
   // 解除按鈕禁用
   unlockTest.disabled = false

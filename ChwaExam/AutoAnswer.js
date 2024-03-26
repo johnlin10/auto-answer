@@ -39,7 +39,7 @@ var AutoAnswer = setInterval(function () {
 
     // 如可重考，可使用以下 if 程式
     // if (nextButton.classList.contains('ng-hide')) {
-    //   // 如果包含 'ng-hide'，點擊ㄋ sendAnsBtn
+    //   // 如果包含 'ng-hide'，點擊 sendAnsBtn
     //   setTimeout(() => {
     //     // 提交答案
     //     sendAnsBtn.click()
