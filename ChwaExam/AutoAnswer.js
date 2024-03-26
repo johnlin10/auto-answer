@@ -8,10 +8,6 @@
  * clearInterval(AutoAnswer);
  */
 // 暫停所有計時器（用於讓交卷按鈕保持啟用）
-var id = window.setInterval(function () {}, 0)
-while (id--) {
-  window.clearInterval(id)
-}
 var AutoAnswer = setInterval(function () {
   // 保持啟用交卷按鈕（用於可隨時交卷）
   const sendAnsBtn = document.querySelector('button#sendAns')
@@ -40,5 +36,18 @@ var AutoAnswer = setInterval(function () {
 
     // 下一題是第二個按鈕
     nextButton.click()
+
+    // 如可重考，可使用以下 if 程式
+    // if (nextButton.classList.contains('ng-hide')) {
+    //   // 如果包含 'ng-hide'，點擊ㄋ sendAnsBtn
+    //   setTimeout(() => {
+    //     // 提交答案
+    //     sendAnsBtn.click()
+    //     setTimeout(() => {
+    //       // 重考
+    //       buttonSection[2].click()
+    //     }, 100)
+    //   }, 100)
+    // }
   }, 100)
 }, 200) // 如果運行時有漏題，建議提高運行延遲，預設為 200
