@@ -6,7 +6,7 @@
 /**
  * 此程式只會運行一次，如要重新隨機作答，再進行一次以上的「使用方法」
  */
-function sanminExamTester() {
+function AutoAnswer() {
   // 列點式選擇題
   // 找到每題的選項區塊，只選擇包含 input[type="radio"] 的 span
   const listQuestions = document.querySelectorAll(
@@ -53,4 +53,4 @@ function sanminExamTester() {
   })
 }
 
-sanminExamTester()
+AutoAnswer()

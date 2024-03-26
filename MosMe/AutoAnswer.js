@@ -6,7 +6,7 @@
 /**
  * 此程式只會運行一次，如要重新隨機作答，再進行一次以上的「使用方法」
  */
-function mosmeTester() {
+function AutoAnswer() {
   // 清除每題的選項
   const optionsRefresh = document.querySelectorAll('button.refresh')
   optionsRefresh.forEach((optionRefresh) => {
@@ -30,4 +30,4 @@ function mosmeTester() {
   })
 }
 
-mosmeTester()
+AutoAnswer()

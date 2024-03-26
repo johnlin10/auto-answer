@@ -5,9 +5,9 @@
  */
 /**
  * 如要停止此程式，請運行以下程式：
- * clearInterval(learnModeTester);
+ * clearInterval(AutoAnswer);
  */
-var learnModeTester = setInterval(function () {
+var AutoAnswer = setInterval(function () {
   // 找到選項列表內的選項
   const elements = document.querySelectorAll(
     'ul[data-v-204f78ad] > span > label'
