@@ -4,22 +4,21 @@
  * 使用方法：複製整段程式，在控制台底部輸入框貼上，Enter 後開始運行
  */
 /**
- * 此程式只會運行一次，如要重新隨機作答，再進行一次以上的「使用方法」
+ * 如要停止此程式，請運行以下程式：
+ * clearInterval(AutoAnswer);
  */
+// 暫停所有計時器（用於讓交卷按鈕保持啟用）
 var id = window.setInterval(function () {}, 0)
 while (id--) {
   window.clearInterval(id)
 }
-
 var AutoAnswer = setInterval(function () {
+  // 保持啟用交卷按鈕（用於可隨時交卷）
   const sendAnsBtn = document.querySelector('button#sendAns')
   const sendAnsBtn2 = document.querySelector('button#sendAns2')
-  if (sendAnsBtn) {
-    sendAnsBtn.style.display = 'block'
-  }
-  if (sendAnsBtn2) {
-    sendAnsBtn2.style.display = 'none'
-  }
+  if (sendAnsBtn) sendAnsBtn.style.display = 'block'
+  if (sendAnsBtn2) sendAnsBtn2.style.display = 'none'
+
   // 找到選項列表內的選項
   const elements = document.querySelectorAll(
     'div#testArea > div > div:not(.ng-hide) > div > input'
@@ -39,7 +38,7 @@ var AutoAnswer = setInterval(function () {
     )
     const nextButton = buttonSection[1]
 
-    // 下一題是第二個按鈕，最後一題時會變成繳交
+    // 下一題是第二個按鈕
     nextButton.click()
   }, 100)
-}, 200)
+}, 200) // 如果運行時有漏題，建議提高運行延遲，預設為 200
