@@ -10,7 +10,7 @@ function sanminExamTester() {
   // 列點式選擇題
   // 找到每題的選項區塊，只選擇包含 input[type="radio"] 的 span
   const listQuestions = document.querySelectorAll(
-    'tr.cssPrint > td > span:has(input[type="radio"])'
+    'tr > td > span:has(input[type="radio"])' // 將 tr 的 `.cssPrint` 選擇器去除（部分試卷內，這部分沒有這個選擇器），而這個結構已經足以精確選擇到題目選項
   )
 
   listQuestions.forEach((span) => {
