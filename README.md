@@ -6,12 +6,13 @@
 
 - LearnMode 學習吧
 - SanminExam 三民東大測驗
+- MOSME 行動學習一點通
 
 ## 使用方法
 
-1. 找到已支持網站的資料夾
+1. 進入已支持網站的資料夾
 
-2. 找到 AutoAnswer 程式
+2. 找到 AutoAnswer.js 程式
 
 3. 在瀏覽器中運行程式
 
