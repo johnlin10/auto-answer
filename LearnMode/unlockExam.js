@@ -4,10 +4,14 @@
  * 使用方法：複製整段程式，在瀏覽器控制台底部輸入框中貼上，Enter 解除限制
  */
 // 尋找按鈕
-const unlockTest = document.querySelector(
-  'section#Test > div > div > div > button'
-)
-if (unlockTest) {
-  // 解除按鈕禁用
-  unlockTest.disabled = false
+function unlockTest() {
+  const reTestBtn = document.querySelector(
+    'section#Test > div > div > div > button'
+  )
+  if (reTestBtn) {
+    // 解除按鈕禁用
+    reTestBtn.disabled = false
+    reTestBtn.click()
+  }
 }
+unlockTest()

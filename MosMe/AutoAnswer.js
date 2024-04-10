@@ -28,6 +28,37 @@ function AutoAnswer() {
       selectedOption.click()
     }
   })
+
+  // 收尾動作
+  setTimeout(() => {
+    // 點擊交卷
+    const submitBtn = document.querySelector('div.submitexam')
+    submitBtn.click()
+
+    // 確認交卷
+    setTimeout(() => {
+      const confirmSubmit = document.querySelector(
+        'div#FinishExamModal > div > div > div > button.btn-primary'
+      )
+      confirmSubmit.click()
+
+      // 關閉報表
+      setTimeout(() => {
+        const closeRetruns = document.querySelector(
+          'div.check-modal div.modal-footer > button#btnCloseReport'
+        )
+        closeRetruns.click()
+
+        // 結束考試
+        setTimeout(() => {
+          const over = document.querySelector(
+            'div.mainmenu-bar > div.mainmenu-submit'
+          )
+          over.click()
+        }, 100)
+      }, 100)
+    }, 100)
+  }, 100)
 }
 
 AutoAnswer()
