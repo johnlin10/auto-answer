@@ -1,13 +1,15 @@
 # AutoAnswer
 
-> 這些腳本單純是無聊寫的，請謹慎使用。
+> 這些腳本僅供娛樂，請謹慎使用。
 
 目前支持網站：
 
-- ChwaExam 全華線上題庫系統
-- LearnMode 學習吧
-- MOSME 行動學習一點通
-- SanminExam 三民東大測驗
+- [ChwaExam 全華線上題庫系統](https://exam.chwa.com.tw/CHWA_EXAM/student.html#/login)
+- [LearnMode 學習吧](https://www.learnmode.net/home/)
+- [MOSME 行動學習一點通](https://www.mosme.net)
+- [SanminExam 三民東大測驗](https://exam.sanmin.com.tw/exam/home)
+- [SmartReadingDACC 適性閱讀能力檢測](https://smartreading.net/v3/about-dacc.aspx)
+- [MathPassionTest 數學能力診斷](https://mcad.dtmctest.net)
 
 ## 注意事項
 
@@ -22,8 +24,8 @@
 
 2. 找到 `AutoAnswer.js` 程式
 
-3. 在瀏覽器中運行程式
+3. 運行程式的方法
 
-    - 使用擴充插件運行此 JavsScript 程式
+    - 使用瀏覽器擴充運行此 JavsScript 程式（部分必須使用擴充程式）
 
-    - 複製整段程式，在答題介面中開啟瀏覽器控制台，並在底部輸入框貼上，Enter 開始運行
+    - 複製整段程式，在答題介面中開啟瀏覽器控制台，並在底部輸入框貼上，Enter 開始運行。

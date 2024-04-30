@@ -7,7 +7,6 @@
  * 如要停止此程式，請運行以下程式：
  * clearInterval(AutoAnswer);
  */
-// 暫停所有計時器（用於讓交卷按鈕保持啟用）
 var AutoAnswer = setInterval(function () {
   // 保持啟用交卷按鈕（用於可隨時交卷）
   const sendAnsBtn = document.querySelector('button#sendAns')

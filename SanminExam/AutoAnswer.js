@@ -8,20 +8,21 @@
  */
 function AutoAnswer() {
   // 列點式選擇題
-  // 找到每題的選項區塊，只選擇包含 input[type="radio"] 的 span
-  const listQuestions = document.querySelectorAll(
-    'tr > td > span:has(input[type="radio"])' // 將 tr 的 `.cssPrint` 選擇器去除（部分試卷內，這部分沒有這個選擇器），而這個結構已經足以精確選擇到題目選項
-  )
+  // 找到每題的選項區塊，並過濾出包含有 input[type="radio"] 的 span
+  // sanmin 的標籤結構太混亂了... 嵌套太多 table，也沒有規範的 className，只能土法煉鋼了
+  const tdsWithRadioInput = Array.from(
+    document.querySelectorAll('tr > td > table > tbody > tr > td')
+  ).filter((td) => td.querySelector('span > input[type="radio"]') !== null)
 
-  listQuestions.forEach((span) => {
+  tdsWithRadioInput.forEach((span) => {
     // 每題中的所有選項
     const inputs = span.querySelectorAll('input')
+    console.log(inputs)
 
     // 如果存在選項則隨機選擇一個
     if (inputs.length > 0) {
       const randomIndex = Math.floor(Math.random() * inputs.length)
       const selectedInput = inputs[randomIndex]
-      console.log(selectedInput)
 
       // 模擬點擊選項
       selectedInput.click()
