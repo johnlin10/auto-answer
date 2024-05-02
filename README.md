@@ -5,12 +5,13 @@
 目前支持網站：
 
 - [ChwaExam 全華線上題庫系統](https://exam.chwa.com.tw/CHWA_EXAM/student.html#/login)
+- (NEW) [EasyTest 單字測驗系統](https://easytest.khvs.tc.edu.tw)
+- (NEW) [Google Form](https://forms.google.com) - Only radio input
 - [LearnMode 學習吧](https://www.learnmode.net/home/)
+- [MathPassionTest 數學能力診斷](https://mcad.dtmctest.net)
 - [MOSME 行動學習一點通](https://www.mosme.net)
 - [SanminExam 三民東大測驗](https://exam.sanmin.com.tw/exam/home)
 - [SmartReadingDACC 適性閱讀能力檢測](https://smartreading.net/v3/about-dacc.aspx)
-- [MathPassionTest 數學能力診斷](https://mcad.dtmctest.net)
-- [Google Form](https://forms.google.com)
 
 ## 注意事項
 
