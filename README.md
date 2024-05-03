@@ -1,12 +1,14 @@
 # AutoAnswer
 
+提供快速隨機選擇線上試題的服務。
+
 > 這些腳本僅供娛樂，請謹慎使用。
 
 目前支持網站：
 
 - [ChwaExam 全華線上題庫系統](https://exam.chwa.com.tw/CHWA_EXAM/student.html#/login)
 - (NEW) [EasyTest 單字測驗系統](https://easytest.khvs.tc.edu.tw)
-- (NEW) [Google Form](https://forms.google.com) - Only radio input
+- (NEW) [Google Form](https://forms.google.com)
 - [LearnMode 學習吧](https://www.learnmode.net/home/)
 - [MathPassionTest 數學能力診斷](https://mcad.dtmctest.net)
 - [MOSME 行動學習一點通](https://www.mosme.net)
