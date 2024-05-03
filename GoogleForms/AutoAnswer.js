@@ -16,26 +16,35 @@ async function AutoAnswer() {
   await TextQuestion()
   await TextAreaQuestion()
 }
+
 /**
- * Delay
- * @param {Number} ms - 欲延遲的毫秒數
+ * 摋選出指定結構的 element
+ * @param {String} filterCallback - 欲篩選的結構
+ * @returns {Element} - 摋選出的 element
+ */
+function filterQueryFormElements(filterCallback) {
+  return Array.from(
+    document.querySelectorAll('form > div > div > div > div')
+  ).filter((td) => td.querySelector(filterCallback) !== null)
+}
+
+/**
+ * 隨機選擇 element，用於對其進行操作
+ * @param {Element} elements - 欲隨機選擇的 elements
  * @returns
  */
-function delay(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms))
+function selectRandomElement(elements) {
+  const randomIndex = Math.floor(Math.random() * elements.length)
+  return elements[randomIndex]
 }
+
 /**
  * 單選題 隨機點選 選項
  */
-async function RadioQuestion() {
+function RadioQuestion() {
   // 篩選出全部單選題題
-  const options = Array.from(
-    document.querySelectorAll('form > div > div > div > div')
-  ).filter(
-    (td) =>
-      td.querySelector(
-        'div > div > div > div > div > div > span > div > div > label'
-      ) !== null
+  const options = filterQueryFormElements(
+    'div > div > div > div > div > div > span > div > div > label'
   )
   // 循環每個單選題
   options.forEach((optionGroup) => {
@@ -45,8 +54,7 @@ async function RadioQuestion() {
     )
     // 隨機選擇隨機個選項
     if (option.length > 0) {
-      const randomIndex = Math.floor(Math.random() * option.length)
-      const selectedOption = option[randomIndex]
+      const selectedOption = selectRandomElement(option)
       // 模擬點擊選項
       selectedOption.click()
     }
@@ -56,15 +64,10 @@ async function RadioQuestion() {
 /**
  * 複選題 隨機點選 隨機個 選項
  */
-async function CheckboxQuestion() {
+function CheckboxQuestion() {
   // 篩選出全部複選題
-  const optionsGroup = Array.from(
-    document.querySelectorAll('form > div > div > div > div')
-  ).filter(
-    (td) =>
-      td.querySelector(
-        'div > div > div > div > div > div[role="list"] > div'
-      ) !== null
+  const optionsGroup = filterQueryFormElements(
+    'div > div > div > div > div > div[role="list"] > div'
   )
   // 循環每個複選題
   optionsGroup.forEach((option) => {
@@ -119,11 +122,8 @@ async function waitForOptions(optionGroup) {
  */
 async function SelectQuestion() {
   // 篩選出全部下拉式選單題
-  const optionsGroups = Array.from(
-    document.querySelectorAll('form > div > div > div > div')
-  ).filter(
-    (td) =>
-      td.querySelector('div > div > div > div > div[role="listbox"]') !== null
+  const optionsGroups = filterQueryFormElements(
+    'div > div > div > div > div[role="listbox"]'
   )
 
   // 循環每個下拉式選單題
@@ -145,25 +145,25 @@ async function SelectQuestion() {
       // 過濾掉前兩個非選項 div 元素
       const option = options[1].querySelectorAll('div > div:nth-child(n+3)')
       // 隨機選擇
-      const randomIndex = Math.floor(Math.random() * option.length)
-      const selectedOption = option[randomIndex]
+      const selectedOption = selectRandomElement(option)
       selectedOption.click()
     }
   }
 }
 
+function fillText(content, element) {
+  element.value = content
+  element.dispatchEvent(new Event('input', { bubbles: true })) // 觸發 input 事件
+  element.dispatchEvent(new Event('change', { bubbles: true })) // 觸發 change 事件
+}
+
 /**
  * 簡答題 隨機點選 選項
  */
-async function TextQuestion() {
+function TextQuestion() {
   // 篩選出全部簡答題
-  const textInputsQuestions = Array.from(
-    document.querySelectorAll('form > div > div > div > div')
-  ).filter(
-    (td) =>
-      td.querySelector(
-        'div > div > div > div > div > div > div > div > input[type="text"]'
-      ) !== null
+  const textInputsQuestions = filterQueryFormElements(
+    'div > div > div > div > div > div > div > div > input[type="text"]'
   )
   // 循環每個簡答題
   for (const textInputsQuestion of textInputsQuestions) {
@@ -173,9 +173,7 @@ async function TextQuestion() {
     )
     // 輸入預設內容，並觸發 input 及 change 觸發更新
     if (textInput) {
-      textInput.value = ' '
-      textInput.dispatchEvent(new Event('input', { bubbles: true })) // 觸發 input 事件
-      textInput.dispatchEvent(new Event('change', { bubbles: true })) // 觸發 change 事件
+      fillText(' ', textInput)
     }
   }
 }
@@ -183,14 +181,10 @@ async function TextQuestion() {
 /**
  * 詳答題 隨機點選 選項
  */
-async function TextAreaQuestion() {
+function TextAreaQuestion() {
   // 篩選出全部詳答題
-  const textInputsQuestions = Array.from(
-    document.querySelectorAll('form > div > div > div > div')
-  ).filter(
-    (td) =>
-      td.querySelector('div > div > div > div > div > div > div > textarea') !==
-      null
+  const textInputsQuestions = filterQueryFormElements(
+    'div > div > div > div > div > div > div > textarea'
   )
   // 循環每個詳答題
   for (const textInputsQuestion of textInputsQuestions) {
@@ -199,10 +193,7 @@ async function TextAreaQuestion() {
       'div > div > div > div > div > div > div > textarea'
     )
     if (textarea) {
-      textarea.value = ' '
-      // 輸入預設內容，並觸發 input 及 change 觸發更新
-      textarea.dispatchEvent(new Event('input', { bubbles: true })) // 觸發 input 事件
-      textarea.dispatchEvent(new Event('change', { bubbles: true })) // 觸發 change 事件
+      fillText(' ', textarea)
     }
   }
 }
